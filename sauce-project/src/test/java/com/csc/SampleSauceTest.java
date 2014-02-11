@@ -1,29 +1,27 @@
-package com.saucelabs;
+package com.csc;
 
 /**
- * @author Ross Rowe
+ * @author Ross Rowe  - Pradeep Test
  */
 
-import com.saucelabs.common.SauceOnDemandAuthentication;
-import com.saucelabs.common.SauceOnDemandSessionIdProvider;
-import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
-import com.saucelabs.testng.SauceOnDemandTestListener;
-import org.openqa.selenium.Platform;
+import static org.testng.Assert.assertEquals;
+
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static org.testng.Assert.assertEquals;
+import com.saucelabs.common.SauceOnDemandAuthentication;
+import com.saucelabs.common.SauceOnDemandSessionIdProvider;
+import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
+import com.saucelabs.testng.SauceOnDemandTestListener;
 
 
 /**
@@ -124,6 +122,14 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider, SauceOnD
         return sessionId.get();
     }
 
+    /**
+    *
+    * @return the Sauce Job id for the current thread
+    */
+   public String getSessionId1() {
+       return sessionId.get();
+   }
+   
     /**
      *
      * @return the {@link SauceOnDemandAuthentication} instance containing the Sauce username/access key
